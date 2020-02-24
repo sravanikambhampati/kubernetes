@@ -16,3 +16,17 @@ nodes:
       hostPort: 80
       listenAddress: "0.0.0.0"
       protocol: tcp
+- role: worker
+  extraMounts:
+   - hostPath: ./volumes
+     containerPath: /opt/volumes
+  extraPortMappings:
+    - containerPort: 30080
+      hostPort: 30080
+      listenAddress: "0.0.0.0"
+      protocol: tcp
+    - containerPort: 8080
+      hostPort: 8080
+      listenAddress: "0.0.0.0"
+      protocol: tcp
+     
