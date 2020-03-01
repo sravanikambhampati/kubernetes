@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: meow-ingress
+  namespace: default
+spec:
+  rules:
+  - host: meow.com
+    http:
+      paths:
+      - backend:
+          serviceName: meow-svc
+          servicePort: 80
+        path: /
+  tls:
+  - hosts:
+    - meow.com
+    secretName: my-certs
